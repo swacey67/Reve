@@ -5,8 +5,14 @@ export default function Tumbler({ color, topColor, bottomColor, handleColor, hea
   const containerClass = isStatic ? "relative drop-shadow-xl flex justify-center w-full" : "relative group perspective-1000";
   const innerClass = isStatic ? "transform scale-100 transition-transform duration-500 hover:scale-105" : "transform rotate-[18deg] group-hover:rotate-[12deg] group-hover:-translate-y-6 transition-all duration-500 ease-out cursor-pointer drop-shadow-2xl animate-fade-in-up";
   
-  // Menangani Path Gambar untuk GitHub Pages
-  const baseUrl = import.meta.env.BASE_URL;
+  // Mengambil base URL dari Vite environment
+  const base = import.meta.env.BASE_URL || '/';
+  
+  // Fungsi untuk memastikan path gambar selalu benar (menghindari double slash //)
+  const getImgPath = (imgName) => {
+    const cleanBase = base.endsWith('/') ? base : `${base}/`;
+    return `${cleanBase}images/${imgName}`;
+  };
 
   const fillTop = patternId ? `url(#${patternId})` : (topColor || color);
   const fillBottom = patternId ? `url(#${patternId})` : (bottomColor || color);
@@ -26,23 +32,25 @@ export default function Tumbler({ color, topColor, bottomColor, handleColor, hea
               <stop offset="0%" stopColor="#9ca3af" /><stop offset="20%" stopColor="#f3f4f6" /><stop offset="75%" stopColor="#d1d5db" /><stop offset="100%" stopColor="#6b7280" />
             </linearGradient>
             
-            {/* Bagian Perbaikan Path Gambar */}
+            {/* Pattern Definitions dengan Path Dinamis */}
             <pattern id="collabPattern" width="180" height="360" patternUnits="userSpaceOnUse">
-              <image href={`${baseUrl}images/chainsaw.jpg`} width="180" height="360" preserveAspectRatio="xMidYMid slice" />
+              <image href={getImgPath('chainsaw.jpg')} width="180" height="360" preserveAspectRatio="xMidYMid slice" />
             </pattern>
             <pattern id="jjkPattern" width="180" height="360" patternUnits="userSpaceOnUse">
-              <image href={`${baseUrl}images/jjk.jpg`} width="180" height="360" preserveAspectRatio="xMidYMid slice" />
+              <image href={getImgPath('jjk.jpg')} width="180" height="360" preserveAspectRatio="xMidYMid slice" />
             </pattern>
             <pattern id="vagabondPattern" width="180" height="360" patternUnits="userSpaceOnUse">
-              <image href={`${baseUrl}images/vagabond.jpg`} width="180" height="360" preserveAspectRatio="xMidYMid slice" />
+              <image href={getImgPath('vagabond.jpg')} width="180" height="360" preserveAspectRatio="xMidYMid slice" />
             </pattern>
           </defs>
 
+          {/* Handle */}
           <g style={{ transform: isExploded ? 'translateX(40px)' : 'translateX(0)', transition: 'transform 0.5s cubic-bezier(0.4, 0, 0.2, 1)' }} onClick={(e) => { e.stopPropagation(); onPartClick && onPartClick('handle'); }} className={onPartClick ? "cursor-pointer hover:brightness-110 transition-all" : ""}>
             {activePart === 'handle' && <path d="M 88 85 L 115 85 C 122 85 125 90 125 95 L 125 155 C 125 160 122 165 115 165 L 82 165" stroke="white" strokeWidth="16" fill="none" strokeLinecap="round" strokeLinejoin="round" className="opacity-80" strokeDasharray="6 6" pointerEvents="none" />}
             <path d="M 88 85 L 115 85 C 122 85 125 90 125 95 L 125 155 C 125 160 122 165 115 165 L 82 165" stroke={fillHandle} strokeWidth="11" fill="none" strokeLinecap="round" strokeLinejoin="round" className="drop-shadow-md" />
           </g>
 
+          {/* Top Part */}
           <g style={{ transition: 'transform 0.5s cubic-bezier(0.4, 0, 0.2, 1)' }} onClick={(e) => { e.stopPropagation(); onPartClick && onPartClick('top'); }} className={onPartClick ? "cursor-pointer hover:brightness-110 transition-all" : ""}>
             <path d="M 15 50 L 105 50 L 92 180 L 28 180 Z" fill={fillTop} />
             <path d="M 25 50 L 38 50 L 38 180 L 30 180 Z" fill="#ffffff" fillOpacity={topDark ? "0.15" : "0.5"} />
@@ -51,6 +59,7 @@ export default function Tumbler({ color, topColor, bottomColor, handleColor, hea
             {activePart === 'top' && <path d="M 15 50 L 105 50 L 92 180 L 28 180 Z" fill="none" stroke="white" strokeWidth="2" strokeDasharray="4 4" className="opacity-70" pointerEvents="none" />}
           </g>
 
+          {/* Bottom Part */}
           <g style={{ transform: isExploded ? 'translateY(45px)' : 'translateY(0)', transition: 'transform 0.5s cubic-bezier(0.4, 0, 0.2, 1)' }} onClick={(e) => { e.stopPropagation(); onPartClick && onPartClick('bottom'); }} className={onPartClick ? "cursor-pointer hover:brightness-110 transition-all" : ""}>
             <path d="M 28 180 L 92 180 L 85 245 C 84 252 80 255 75 255 L 45 255 C 40 255 36 252 35 245 L 28 180 Z" fill={fillBottom} />
             <path d="M 28 180 L 92 180 L 90 184 L 30 184 Z" fill="#000000" fillOpacity="0.12" />
@@ -60,6 +69,7 @@ export default function Tumbler({ color, topColor, bottomColor, handleColor, hea
             {activePart === 'bottom' && <path d="M 28 180 L 92 180 L 85 245 C 84 252 80 255 75 255 L 45 255 C 40 255 36 252 35 245 L 28 180 Z" fill="none" stroke="white" strokeWidth="2" strokeDasharray="4 4" className="opacity-70" pointerEvents="none" />}
           </g>
 
+          {/* Head Part */}
           <g style={{ transform: isExploded ? 'translateY(-40px)' : 'translateY(0)', transition: 'transform 0.5s cubic-bezier(0.4, 0, 0.2, 1)' }} onClick={(e) => { e.stopPropagation(); onPartClick && onPartClick('head'); }} className={onPartClick ? "cursor-pointer hover:brightness-110 transition-all" : ""}>
             <path d="M 13 40 L 107 40 L 105 50 L 15 50 Z" fill="url(#metalGrad)" />
             <path d="M 17 25 L 103 25 L 107 40 L 13 40 Z" fill="#ffffff" fillOpacity="0.5" />
