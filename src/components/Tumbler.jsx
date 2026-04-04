@@ -4,6 +4,10 @@ import { isColorDark } from '../utils';
 export default function Tumbler({ color, topColor, bottomColor, handleColor, headColor, lidBaseColor, patternId, isDark, delay, isStatic = false, isExploded = false, activePart = null, onPartClick = null }) {
   const containerClass = isStatic ? "relative drop-shadow-xl flex justify-center w-full" : "relative group perspective-1000";
   const innerClass = isStatic ? "transform scale-100 transition-transform duration-500 hover:scale-105" : "transform rotate-[18deg] group-hover:rotate-[12deg] group-hover:-translate-y-6 transition-all duration-500 ease-out cursor-pointer drop-shadow-2xl animate-fade-in-up";
+  
+  // Menangani Path Gambar untuk GitHub Pages
+  const baseUrl = import.meta.env.BASE_URL;
+
   const fillTop = patternId ? `url(#${patternId})` : (topColor || color);
   const fillBottom = patternId ? `url(#${patternId})` : (bottomColor || color);
   const fillHandle = handleColor || color;
@@ -21,9 +25,17 @@ export default function Tumbler({ color, topColor, bottomColor, handleColor, hea
             <linearGradient id="metalGrad" x1="0" y1="0" x2="1" y2="0">
               <stop offset="0%" stopColor="#9ca3af" /><stop offset="20%" stopColor="#f3f4f6" /><stop offset="75%" stopColor="#d1d5db" /><stop offset="100%" stopColor="#6b7280" />
             </linearGradient>
-            <pattern id="collabPattern" width="180" height="360" patternUnits="userSpaceOnUse"><image href="/images/chainsaw.jpg" width="180" height="360" preserveAspectRatio="xMidYMid slice" /></pattern>
-            <pattern id="jjkPattern" width="180" height="360" patternUnits="userSpaceOnUse"><image href="/images/jjk.jpg" width="180" height="360" preserveAspectRatio="xMidYMid slice" /></pattern>
-            <pattern id="vagabondPattern" width="180" height="360" patternUnits="userSpaceOnUse"><image href="/images/vagabond.jpg" width="180" height="360" preserveAspectRatio="xMidYMid slice" /></pattern>
+            
+            {/* Bagian Perbaikan Path Gambar */}
+            <pattern id="collabPattern" width="180" height="360" patternUnits="userSpaceOnUse">
+              <image href={`${baseUrl}images/chainsaw.jpg`} width="180" height="360" preserveAspectRatio="xMidYMid slice" />
+            </pattern>
+            <pattern id="jjkPattern" width="180" height="360" patternUnits="userSpaceOnUse">
+              <image href={`${baseUrl}images/jjk.jpg`} width="180" height="360" preserveAspectRatio="xMidYMid slice" />
+            </pattern>
+            <pattern id="vagabondPattern" width="180" height="360" patternUnits="userSpaceOnUse">
+              <image href={`${baseUrl}images/vagabond.jpg`} width="180" height="360" preserveAspectRatio="xMidYMid slice" />
+            </pattern>
           </defs>
 
           <g style={{ transform: isExploded ? 'translateX(40px)' : 'translateX(0)', transition: 'transform 0.5s cubic-bezier(0.4, 0, 0.2, 1)' }} onClick={(e) => { e.stopPropagation(); onPartClick && onPartClick('handle'); }} className={onPartClick ? "cursor-pointer hover:brightness-110 transition-all" : ""}>

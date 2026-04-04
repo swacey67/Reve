@@ -35,7 +35,7 @@ export default function CollabDetail() {
       <div className="flex flex-col items-center md:items-start text-center md:text-left w-full md:w-1/2 mt-8 md:mt-0">
         <h2 className="font-sans-custom font-extrabold text-4xl md:text-5xl text-[#F5F4EF] mb-6 tracking-tight">{selectedCollab.title}</h2>
         <p className="text-[#F5F4EF]/70 font-sans text-sm md:text-[0.95rem] leading-relaxed mb-6 font-light max-w-lg">{selectedCollab.description}</p>
-        <p className="text-[#F5F4EF] font-sans text-sm md:text-base font-semibold leading-relaxed mb-10 max-w-xs">Stainless 900 ML tumbler with hand grip that has a durability of up to 24 hours.</p>
+        <p className="text-[#F5F4EF] font-sans text-sm md:text-base font-semibold leading-relaxed mb-10 max-w-xs">Stainless Steel 900 ML tumbler with hand grip that has a durability of up to 24 hours.</p>
 
         <div className="w-full flex flex-col items-center md:items-start">
           <button onClick={handleCheckout} disabled={checkoutStatus !== 'idle'} className={`font-bold font-sans tracking-widest text-sm md:text-base px-10 py-4 rounded-full shadow-[0_10px_30px_rgba(0,0,0,0.15)] transition-all duration-300 ${checkoutStatus === 'idle' ? 'bg-[#EFEFEA] text-[#112316] hover:scale-105 hover:shadow-[0_15px_40px_rgba(0,0,0,0.25)]' : checkoutStatus === 'processing' ? 'bg-[#EFEFEA]/80 text-[#112316]/70 cursor-wait' : 'bg-green-600 text-white cursor-default'}`}>
