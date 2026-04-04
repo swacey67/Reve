@@ -43,7 +43,7 @@ export default function Customize() {
             <button key={color} onClick={() => setCustomColors(prev => ({ ...prev, [activePart]: color }))} className="w-10 h-10 md:w-12 md:h-12 rounded-sm shadow-sm transition-transform hover:scale-110 border border-black/10 focus:outline-none focus:ring-2 focus:ring-white/50" style={{ backgroundColor: color }} aria-label={`Select color ${color}`} />
           ))}
         </div>
-        <p className="max-w-xs text-[#F5F4EF]/90 font-sans text-sm md:text-base leading-relaxed mb-8">Stainless 900 ML tumbler with hand grip that has a durability of up to 24 hours.</p>
+        <p className="max-w-xs text-[#F5F4EF]/90 font-sans text-sm md:text-base leading-relaxed mb-8">Stainless Steel 900 ML tumbler with hand grip that has a durability of up to 24 hours.</p>
         <div className="w-full flex flex-col items-center md:items-start">
           <button onClick={handleCheckout} disabled={checkoutStatus !== 'idle'} className={`font-bold font-sans tracking-widest text-sm md:text-base px-10 py-4 rounded-full shadow-[0_10px_30px_rgba(0,0,0,0.15)] transition-all duration-300 ${checkoutStatus === 'idle' ? 'bg-[#EFEFEA] text-[#112316] hover:scale-105 hover:shadow-[0_15px_40px_rgba(0,0,0,0.25)]' : checkoutStatus === 'processing' ? 'bg-[#EFEFEA]/80 text-[#112316]/70 cursor-wait' : 'bg-green-600 text-white cursor-default'}`}>
             {checkoutStatus === 'idle' && 'CHECK OUT'}

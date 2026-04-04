@@ -53,7 +53,7 @@ export default function StockDetail() {
         <h2 className="font-sans-custom font-extrabold text-4xl md:text-5xl text-[#F5F4EF] mb-2 tracking-tight">{selectedStock.title}</h2>
         <p className="text-[#F5F4EF]/90 font-sans text-xl mb-6">{selectedStock.price}</p>
         <p className="text-[#F5F4EF]/70 font-sans text-sm md:text-[0.95rem] leading-relaxed mb-8 font-light">
-          {selectedStock.description}<br/><br/>Stainless 900 ML tumbler with hand grip that has a durability of up to 24 hours.
+          {selectedStock.description}<br/><br/>Stainless Steel 900 ML tumbler with hand grip that has a durability of up to 24 hours.
         </p>
 
         <div className="w-full mb-10 pb-10 border-b border-[#F5F4EF]/20">
