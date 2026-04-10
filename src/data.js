@@ -51,19 +51,19 @@ export const COLLAB_DATA = {
   'jjk': {
     title: 'Poignée X Jujutsu Kaisen',
     description: 'Edisi terbatas yang menampilkan seni ikonik dari Jujutsu Kaisen. Koleksi wajib bagi para penggemar.',
-    price: 'Rp 590.000',
+    price: 'Rp 599.000',
     props: { patternId: 'jjkPattern', handleColor: '#111111', headColor: '#901A1E', lidBaseColor: '#1A3E8A' }
   },
   'vagabond': {
     title: 'Poignée X Vagabond',
     description: 'Terinspirasi dari guratan kuas mahakarya Takehiko Inoue. Menghadirkan semangat samurai ke dalam hidrasi Anda.',
-    price: 'Rp 590.000',
+    price: 'Rp 599.000',
     props: { patternId: 'vagabondPattern', handleColor: '#F5F5F5', headColor: '#E0E0E0' }
   },
   'chainsaw': {
     title: 'Poignée X Chainsaw Man',
     description: 'Desain yang berani dan liar khas Chainsaw Man. Dibuat untuk mereka yang berani tampil beda.',
-    price: 'Rp 590.000',
+    price: 'Rp 599.000',
     props: { patternId: 'collabPattern', handleColor: '#1E195E', headColor: '#1E195E', lidBaseColor: '#1A3E8A' }
   }
 };

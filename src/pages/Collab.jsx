@@ -34,7 +34,7 @@ export default function Collab() {
           <p className="font-sans font-bold text-[#F5F4EF] text-sm md:text-[1.05rem] tracking-wide transition-colors group-hover:text-white">
             Poignée X Jujutsu Kaisen
           </p>
-          <p className="font-sans text-[#F5F4EF]/70 text-sm mt-1">Rp 590.000</p>
+          <p className="font-sans text-[#F5F4EF]/70 text-sm mt-1">Rp 599.000</p>
         </div>
 
         {/* VAGABOND */}
@@ -52,7 +52,7 @@ export default function Collab() {
           <p className="font-sans font-bold text-[#F5F4EF] text-sm md:text-[1.05rem] tracking-wide transition-colors group-hover:text-white">
             Poignée X Vagabond
           </p>
-          <p className="font-sans text-[#F5F4EF]/70 text-sm mt-1">Rp 590.000</p>
+          <p className="font-sans text-[#F5F4EF]/70 text-sm mt-1">Rp 599.000</p>
         </div>
 
         {/* CHAINSAW MAN */}
@@ -71,7 +71,7 @@ export default function Collab() {
           <p className="font-sans font-bold text-[#F5F4EF] text-sm md:text-[1.05rem] tracking-wide transition-colors group-hover:text-white">
             Poignée X Chainsaw Man
           </p>
-          <p className="font-sans text-[#F5F4EF]/70 text-sm mt-1">Rp 590.000</p>
+          <p className="font-sans text-[#F5F4EF]/70 text-sm mt-1">Rp 599.000</p>
         </div>
 
       </div>
