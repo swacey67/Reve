@@ -8,14 +8,12 @@ export default function Search() {
   const query = searchParams.get('q') || '';
   const navigate = useNavigate();
 
-  // Menggabungkan semua produk dari Stock dan Collab ke dalam satu array
+  // Memastikan data yang dirender menggunakan harga dari data.js
   const allProducts = [
-    ...Object.entries(STOCK_DATA).map(([key, data]) => ({ ...data, id: key, type: 'stock', price: data.price || 'IDR 670.000' })),
-    ...Object.entries(COLLAB_DATA).map(([key, data]) => ({ ...data, id: key, type: 'collab', price: 'IDR 690.000' }))
+    ...Object.entries(STOCK_DATA).map(([key, data]) => ({ ...data, id: key, type: 'stock', price: data.price })),
+    ...Object.entries(COLLAB_DATA).map(([key, data]) => ({ ...data, id: key, type: 'collab', price: data.price }))
   ];
 
-  // Memfilter produk berdasarkan kata kunci (judul atau deskripsi)
-  // Jika query kosong, filter ini akan mengembalikan semua produk (karena string apa pun memiliki includes(''))
   const filteredProducts = allProducts.filter(product =>
     product.title.toLowerCase().includes(query.toLowerCase()) ||
     (product.description && product.description.toLowerCase().includes(query.toLowerCase()))
@@ -23,7 +21,6 @@ export default function Search() {
 
   return (
     <div className="relative z-10 w-full max-w-7xl mx-auto flex flex-col items-center justify-start min-h-[80vh] animate-fade-in-up mt-6 md:mt-0 px-4">
-      {/* Judul Halaman Pencarian */}
       <div className="w-full text-left mb-8 mt-4">
          <h2 className="font-sans-custom font-extrabold text-3xl md:text-4xl text-[#F5F4EF] tracking-tight">
            {query ? `Hasil Pencarian: "${query}"` : 'Semua Koleksi Tumbler'}
@@ -33,12 +30,10 @@ export default function Search() {
          </p>
       </div>
 
-      {/* Grid Katalog Produk (Desain Kartu Putih) */}
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 w-full pb-12">
         {filteredProducts.map((product) => (
           <div key={`${product.type}-${product.id}`} className="bg-white rounded-xl p-5 shadow-lg flex flex-col h-full hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1">
             
-            {/* Kontainer Gambar */}
             <div 
               className="w-full aspect-[4/5] flex items-center justify-center mb-6 overflow-hidden relative cursor-pointer" 
               onClick={() => navigate(`/${product.type}/${product.id}`)}
@@ -52,7 +47,6 @@ export default function Search() {
                </div>
             </div>
 
-            {/* Detail dan Tombol */}
             <div className="flex flex-col flex-grow">
                <h3 className="font-sans font-bold text-[#111111] text-lg leading-tight mb-2 line-clamp-2">
                  {product.title}

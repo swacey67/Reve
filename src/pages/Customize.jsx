@@ -32,7 +32,11 @@ export default function Customize() {
       </div>
 
       <div className="flex flex-col items-center md:items-start text-center md:text-left mt-8 md:mt-0">
-        <h2 className="font-sans-custom font-extrabold text-5xl md:text-6xl text-[#F5F4EF] mb-8 lowercase tracking-tight">poignée</h2>
+        <h2 className="font-sans-custom font-extrabold text-5xl md:text-6xl text-[#F5F4EF] mb-2 lowercase tracking-tight">poignée</h2>
+        
+        {/* Tambahan Harga Customize */}
+        <p className="text-[#F5F4EF]/90 font-sans text-xl mb-6">Rp 449.000</p>
+
         <div className="flex gap-3 md:gap-4 mb-6 text-xs md:text-sm font-sans uppercase tracking-wider text-[#F5F4EF]/60">
           {['top', 'bottom', 'handle', 'head'].map(part => (
             <button key={part} onClick={() => setActivePart(part)} className={`pb-1 border-b-2 transition-colors ${activePart === part ? 'border-white text-white' : 'border-transparent hover:text-[#F5F4EF]/90'}`}>{part}</button>

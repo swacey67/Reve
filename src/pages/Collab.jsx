@@ -5,7 +5,6 @@ import Tumbler from '../components/Tumbler';
 export default function Collab() {
   const navigate = useNavigate();
   
-  // Fungsi helper untuk memastikan path gambar aman saat deploy
   const getAssetPath = (path) => `${import.meta.env.BASE_URL}${path}`;
 
   return (
@@ -24,7 +23,7 @@ export default function Collab() {
           <div className="scale-110 mb-10 drop-shadow-2xl transition-transform duration-500 group-hover:scale-125 group-hover:-translate-y-4">
             <Tumbler 
               patternId="jjkPattern" 
-              imageSrc={getAssetPath('images/jjk.jpg')} // Menambahkan path gambar yang aman
+              imageSrc={getAssetPath('images/jjk.jpg')} 
               handleColor="#111111" 
               headColor="#901A1E" 
               lidBaseColor="#1A3E8A" 
@@ -35,6 +34,7 @@ export default function Collab() {
           <p className="font-sans font-bold text-[#F5F4EF] text-sm md:text-[1.05rem] tracking-wide transition-colors group-hover:text-white">
             Poignée X Jujutsu Kaisen
           </p>
+          <p className="font-sans text-[#F5F4EF]/70 text-sm mt-1">Rp 590.000</p>
         </div>
 
         {/* VAGABOND */}
@@ -42,7 +42,7 @@ export default function Collab() {
           <div className="scale-110 mb-10 drop-shadow-2xl transition-transform duration-500 group-hover:scale-125 group-hover:-translate-y-4">
             <Tumbler 
               patternId="vagabondPattern" 
-              imageSrc={getAssetPath('images/vagabond.jpg')} // Menambahkan path gambar yang aman
+              imageSrc={getAssetPath('images/vagabond.jpg')} 
               handleColor="#F5F5F5" 
               headColor="#E0E0E0" 
               isStatic={true} 
@@ -52,6 +52,7 @@ export default function Collab() {
           <p className="font-sans font-bold text-[#F5F4EF] text-sm md:text-[1.05rem] tracking-wide transition-colors group-hover:text-white">
             Poignée X Vagabond
           </p>
+          <p className="font-sans text-[#F5F4EF]/70 text-sm mt-1">Rp 590.000</p>
         </div>
 
         {/* CHAINSAW MAN */}
@@ -59,7 +60,7 @@ export default function Collab() {
           <div className="scale-110 mb-10 drop-shadow-2xl transition-transform duration-500 group-hover:scale-125 group-hover:-translate-y-4">
             <Tumbler 
               patternId="collabPattern" 
-              imageSrc={getAssetPath('images/chainsaw.jpg')} // Menambahkan path gambar yang aman
+              imageSrc={getAssetPath('images/chainsaw.jpg')} 
               handleColor="#1E195E" 
               headColor="#1E195E" 
               lidBaseColor="#1A3E8A" 
@@ -70,6 +71,7 @@ export default function Collab() {
           <p className="font-sans font-bold text-[#F5F4EF] text-sm md:text-[1.05rem] tracking-wide transition-colors group-hover:text-white">
             Poignée X Chainsaw Man
           </p>
+          <p className="font-sans text-[#F5F4EF]/70 text-sm mt-1">Rp 590.000</p>
         </div>
 
       </div>

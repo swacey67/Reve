@@ -26,14 +26,17 @@ export default function CollabDetail() {
       </button>
 
       <div className="relative flex flex-col items-center justify-center w-full md:w-1/2">
-        {/* Tombol 3D telah dihapus dari sini */}
         <div className="scale-125 md:scale-150 origin-center drop-shadow-2xl mt-12 md:mt-0">
           <Tumbler {...selectedCollab.props} isStatic={true} delay={0} />
         </div>
       </div>
 
       <div className="flex flex-col items-center md:items-start text-center md:text-left w-full md:w-1/2 mt-8 md:mt-0">
-        <h2 className="font-sans-custom font-extrabold text-4xl md:text-5xl text-[#F5F4EF] mb-6 tracking-tight">{selectedCollab.title}</h2>
+        <h2 className="font-sans-custom font-extrabold text-4xl md:text-5xl text-[#F5F4EF] mb-2 tracking-tight">{selectedCollab.title}</h2>
+        
+        {/* Tambahan Harga Collab */}
+        <p className="text-[#F5F4EF]/90 font-sans text-xl mb-6">{selectedCollab.price}</p>
+        
         <p className="text-[#F5F4EF]/70 font-sans text-sm md:text-[0.95rem] leading-relaxed mb-6 font-light max-w-lg">{selectedCollab.description}</p>
         <p className="text-[#F5F4EF] font-sans text-sm md:text-base font-semibold leading-relaxed mb-10 max-w-xs">Stainless Steel 900 ML tumbler with hand grip that has a durability of up to 24 hours.</p>
 
